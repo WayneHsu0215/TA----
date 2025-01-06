@@ -193,4 +193,15 @@ router.get('/patients/history/:id', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+import * as stuAPI from "./stuAPI_controllers.js";
+
+
+router.post("/login",stuAPI.loginUser)
+router.post("/logout",stuAPI.logoutUser)
+router.get("/accounts",stuAPI.getAccounts)
+router.post("/accounts",stuAPI.createAccount)
+router.put("/accounts/:ID",stuAPI.updateAccount)
+router.put("/pwd/:ID",stuAPI.updatePassword)
+router.delete("/accounts/:ID",stuAPI.deleteAccount)
+router.get("/captcha",stuAPI.getCaptcha);
 

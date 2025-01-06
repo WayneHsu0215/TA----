@@ -313,3 +313,21 @@ BEGIN
     SELECT * FROM @DeletedRows;
 END;
 GO
+
+
+
+CREATE TABLE Account
+(
+    ID       int PRIMARY KEY,    -- 欄位id
+    AccID    varchar(10) UNIQUE, -- 帳號
+    Password varchar(100),       -- 密碼
+    AccType  varchar(20),         -- 帳戶類型
+    UP_Date  datetime,           -- 更新時間
+    UP_User  varchar(20),         -- 更新人員
+    LoginAttempts  int DEFAULT 0,      -- 登入嘗試次數
+    LastAttemptTime datetime            -- 最後嘗試時間
+);
+
+
+INSERT INTO ACCOUNT (ID, AccID, Password, AccType, UP_Date, UP_User)
+VALUES (1, 'ntunhsEmp', '$2b$10$6O3JzrnRPLej.XfqyW0O2u7rwFnra2M9jRVEU1aQL/QiReXoLI6BK', '1', getdate(), '0')
